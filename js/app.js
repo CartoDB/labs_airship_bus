@@ -210,6 +210,24 @@ function run() {
     // });
 
 
+    /* Modal OK close */
+    function showHideModal(isOpen){
+        const classlist = document.querySelector('.as-modal').classList
+        if (isOpen){
+            classlist.remove('hide');
+        } else {
+            classlist.add('hide');
+        }
+    }
+    
+    document.querySelector('#js-modal-ok').addEventListener('click',function(){
+        showHideModal(false);
+    })
+    document.querySelector('#js-about').addEventListener('click',function(){
+        showHideModal(true);
+    })
+    
+
 }
 
 /* Equivalent to jQuery document.ready */

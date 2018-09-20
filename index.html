@@ -5,8 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" href=https://carto.com/favicon.ico> 
-    <!-- Include CSS elements -->
+    <link rel="shortcut icon" href=https://carto.com/favicon.ico> <!-- Include CSS elements -->
     <link rel="stylesheet" href="https://libs.cartocdn.com/airship-style/v1.0.0-alpha.43/airship.css">
     <!-- Include icons -->
     <link rel="stylesheet" href="https://libs.cartocdn.com/airship-icons/v1.0.0-alpha.43/icons.css">
@@ -28,20 +27,39 @@
             }
         }
 
-        .check-box-caption{
+        .check-box-caption {
             display: inline-block;
             vertical-align: middle;
         }
 
-        .infowindow-image{
+        .infowindow-image {
             max-width: 100px;
             margin: 0;
+        }
+
+        .hide{
+            display:none;
         }
     </style>
 </head>
 
 <body class="as-app">
     <as-application-content>
+        <div class="as-modal hide" id="modal">
+            <div class="as-modal__content">
+                <h1 class="as-title">Airship demo</h1>
+                <p class="as-body">
+                    This is a demo of <a href="https://carto.com">CARTO</a>
+                    <a href="https://github.com/cartodb/airship">Airship</a> and
+                    <a href="https://carto.com/developers/carto-js/">CARTO.js</a> libraries. You are seeing fake dynamic data that
+                    rotates every 6 hours displaying Málaga city bus network along with fake
+                    company data.
+                </p>
+                <p style="text-align: center">
+                    <button class="as-btn as-btn--primary as-btn--l" id="js-modal-ok"> OK </button>
+                </p>
+            </div>
+        </div>
         <aside class="as-sidebar as-sidebar--right" data-name="Widgets">
             <div class="as-container">
                 <section class="as-box">
@@ -55,27 +73,24 @@
                     </h3>
                 </section>
                 <section class="as-box">
-                    <as-category-widget 
-                        id="bus-lines-category"
-                        heading="Bus lines"
-                        description="Select coaches by bus line"
-                        default-bar-color="#f24440"
-                        show-clear-button="true">
+                    <as-category-widget id="bus-lines-category" heading="Bus lines" description="Select coaches by bus line"
+                        default-bar-color="#f24440" show-clear-button="true">
                     </as-category-widget>
                 </section>
                 <section class="as-box">
-                    <as-category-widget 
-                        id="bus-companies-category"
-                        heading="Companies"
-                        description="Select coaches by company"
-                        default-bar-color="#f24440"
-                        show-clear-button="true">
+                    <as-category-widget id="bus-companies-category" heading="Companies" description="Select coaches by company"
+                        default-bar-color="#f24440" show-clear-button="true">
                     </as-category-widget>
                 </section>
                 <section class="as-box">
-                    <p class="as-body">Data is on average 
-                        <span class="as-font--medium" id="js-avg-diff"></span> 
+                    <p class="as-body">Data is on average
+                        <span class="as-font--medium" id="js-avg-diff"></span>
                         seconds old
+                    </p>
+                </section>
+                <section class="as-box">
+                    <p style="text-align: center;">
+                        <button class="as-btn as-btn--primary as-color--complementary" id="js-about">About</button>
                     </p>
                 </section>
             </div>
