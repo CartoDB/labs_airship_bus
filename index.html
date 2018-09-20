@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Include CSS elements -->
+    <link rel="stylesheet" href="https://libs.cartocdn.com/airship-style/v1.0.0-alpha.43/airship.css">
+    <!-- Include icons -->
+    <link rel="stylesheet" href="https://libs.cartocdn.com/airship-icons/v1.0.0-alpha.43/icons.css">
+    <!-- Include airship components -->
+    <script src="https://libs.cartocdn.com/airship-components/v1.0.0-alpha.43/airship.js"></script>
+
+
+    <link href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --as-color--secondary: #f24440;
+            --as-color--primary: #1FAC06;
+        }
+
+        @media (min-width: 812px) {
+            .as-panel--left {
+                left: 60px;
+            }
+        }
+
+        .check-box-caption{
+            display: inline-block;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body class="as-app">
+    <as-application-content>
+        <aside class="as-sidebar as-sidebar--right" data-name="Widgets">
+            <div class="as-container">
+                <section class="as-box">
+                    <a class="as-toolbar__item as-p--8" href="https://carto.com">
+                        <img src="resources/logo_CARTO_positive_90.png" style="width:100%" />
+                    </a>
+                </section>
+                <section class="as-box">
+                    <h3 class="as-title">Count</h3>
+                    <p><span id="js-count-buses">0</span> buses</p>
+                </section>
+                <section class="as-box">
+                    <as-category-widget 
+                        id="bus-lines-category"
+                        heading="Bus lines"
+                        description="Select coaches by bus line"
+                        default-bar-color="#f24440"
+                        show-clear-button="true">
+                    </as-category-widget>
+                </section>
+                <section class="as-box">
+                    <as-category-widget 
+                        id="bus-companies-category"
+                        heading="Companies"
+                        description="Select coaches by company"
+                        default-bar-color="#f24440"
+                        show-clear-button="true">
+                    </as-category-widget>
+                </section>
+                <section class="as-box">
+                    <p class="as-body">Data is on average 
+                        <span class="as-font--medium" id="js-avg-diff"></span> 
+                        seconds old
+                    </p>
+                </section>
+            </div>
+        </aside>
+
+        <div class="as-map-wrapper" style="background-color: red" data-name="Map">
+            <div id="map"></div>
+
+            <div class="as-panels" data-name="Filters">
+                <div class="as-panel as-panel--top as-panel--left as-panel--vertical">
+                    <div class="as-panel__element">
+                        <section class="as-box">
+                            <p class="as-title">Layers</p>
+                            <div>
+                                <as-switch checked id="switch_forward" name="switch_forward" title="switch-1"></as-switch>
+                                <div class="check-box-caption">
+                                    <p class="as-body" style="color: #7F3C8D;">Forward</p>
+                                </div>
+                            </div>
+
+                            <div>
+                                <as-switch checked id="switch_backward" name="switch_backward" title="switch-1"></as-switch>
+                                <div class="check-box-caption">
+                                    <p class="as-body" style="color:#11A579;">Backwards</p>
+                                </div>
+                            </div>
+
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </as-application-content>
+
+
+    <!-- Include CARTO.js -->
+    <script src="https://libs.cartocdn.com/carto.js/v4.1.6/carto.min.js"></script>
+
+    <!-- Include Leaflet -->
+    <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"></script>
+    <!-- Leaflet Hash -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-hash/0.2.1/leaflet-hash.min.js"></script>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>
