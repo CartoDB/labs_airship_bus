@@ -4,8 +4,8 @@ function run() {
         username: 'jsanzcdb'
     });
 
-    const map = L.map('map').setView([36.721583, -4.424272], 14);
-    const hash = new L.Hash(map);
+    const map = L.map('map').setView([36.72,-4.43], 15);
+    new L.Hash(map);
 
     L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}.png', {
         maxZoom: 18
@@ -183,9 +183,11 @@ function run() {
     function openPopup(featureEvent) {
         const data = featureEvent.data;
         const direction = data.sentido == 1 ? 'forward' : 'backwards';
-        let content = `
+        const content = `
         <h1 class="as-title">#${data.codbus}</h1>
-        <h2>${data.company_name}</h2>
+        <p style="text-align:center;margin:0;">
+            <img class="infowindow-image" src="resources/companies/${data.company_name.toLowerCase()}.jpg"/>
+        </p>
         <p>
             <span class="as-badge">Line ${data.codlinea}</span>
             <span class="as-badge as-bg--badge-pink">Moving ${direction}</span>
@@ -202,10 +204,10 @@ function run() {
     layer.on('featureClicked',openPopup);
 
 
-    layer.on('featureOver',openPopup);
-    layer.on('featureOut',function(){
-        popup.removeFrom(map);
-    });
+    // layer.on('featureOver',openPopup);
+    // layer.on('featureOut',function(){
+    //     popup.removeFrom(map);
+    // });
 
 
 }
