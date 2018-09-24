@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href=https://carto.com/favicon.ico> <!-- Include CSS elements -->
-    <link rel="stylesheet" href="https://libs.cartocdn.com/airship-style/v1.0.0-alpha.43/airship.css">
+    <link rel="stylesheet" href="https://libs.cartocdn.com/airship-style/v1.0.0-alpha.44/airship.css">
     <!-- Include icons -->
-    <link rel="stylesheet" href="https://libs.cartocdn.com/airship-icons/v1.0.0-alpha.43/icons.css">
+    <link rel="stylesheet" href="https://libs.cartocdn.com/airship-icons/v1.0.0-alpha.44/icons.css">
     <!-- Include airship components -->
-    <script src="https://libs.cartocdn.com/airship-components/v1.0.0-alpha.43/airship.js"></script>
+    <script src="https://libs.cartocdn.com/airship-components/v1.0.0-alpha.44/airship.js"></script>
 
 
     <link href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" rel="stylesheet">
@@ -44,7 +44,7 @@
 </head>
 
 <body class="as-app">
-    <as-application-content>
+    <as-responsive-content>
         <div class="as-modal hide" id="modal">
             <div class="as-modal__content">
                 <h1 class="as-title">Airship demo</h1>
@@ -95,36 +95,37 @@
                 </section>
             </div>
         </aside>
-
-        <div class="as-map-wrapper" style="background-color: red" data-name="Map">
-            <div id="map"></div>
-
-            <div class="as-panels" data-name="Filters">
-                <div class="as-panel as-panel--top as-panel--left as-panel--vertical">
-                    <div class="as-panel__element">
-                        <section class="as-box">
-                            <p class="as-title">Layers</p>
-                            <div>
-                                <as-switch checked id="switch_forward" name="switch_forward" title="switch-1"></as-switch>
-                                <div class="check-box-caption">
-                                    <p class="as-body" style="color: #7F3C8D;">Forward</p>
+        <main class="as-main">
+            <div class="as-map-area">
+                <div id="map"></div>
+                <div class="as-map-panels" data-name="Filters">
+                    <div class="as-panel as-panel--top as-panel--left as-panel--vertical">
+                        <div class="as-panel__element">
+                            <section class="as-box">
+                                <p class="as-title">Layers</p>
+                                <div>
+                                    <as-switch checked id="switch_forward" name="switch_forward" title="switch-1"></as-switch>
+                                    <div class="check-box-caption">
+                                        <p class="as-body" style="color: #7F3C8D;">Forward</p>
+                                    </div>
                                 </div>
-                            </div>
-
-                            <div>
-                                <as-switch checked id="switch_backward" name="switch_backward" title="switch-1"></as-switch>
-                                <div class="check-box-caption">
-                                    <p class="as-body" style="color:#11A579;">Backwards</p>
+    
+                                <div>
+                                    <as-switch checked id="switch_backward" name="switch_backward" title="switch-1"></as-switch>
+                                    <div class="check-box-caption">
+                                        <p class="as-body" style="color:#11A579;">Backwards</p>
+                                    </div>
                                 </div>
-                            </div>
-
-                        </section>
+    
+                            </section>
+                        </div>
                     </div>
                 </div>
             </div>
+        </main>
 
-        </div>
-    </as-application-content>
+
+    </as-responsive-content>
 
 
     <!-- Include CARTO.js -->

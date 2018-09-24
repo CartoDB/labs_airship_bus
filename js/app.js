@@ -231,5 +231,5 @@ function run() {
 }
 
 /* Equivalent to jQuery document.ready */
-const applicationContent = document.querySelector('as-application-content');
-applicationContent.addEventListener('load', run);
+const applicationContent = document.querySelector('as-responsive-content');
+applicationContent.addEventListener('ready', run);
